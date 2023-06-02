@@ -25,12 +25,11 @@
   changed_when: false
   register: __get_node_exporter_version
 
-- name: download and unzip
+- name: copy and uncompress node-exporter
   unarchive:
-    src: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
+    src: "node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
     dest: /tmp/
-    remote_src: yes
-    validate_certs: no
+  notify: reload_daemon_and_restart_node_exporter
 
 - name: install binary
   copy:
