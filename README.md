@@ -1,3 +1,6 @@
+This repository has been migrated to https://codeberg.org/diogoleal/role-node-exporter
+
+
 Role Name
 =========
 
